@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 // #include "parser.h" ??
 
 // hay un int main()??
@@ -21,7 +22,7 @@ int PARS_Crear(TParser * parser, char * archivo, char delimitador, char escape) 
 int PARS_ObtLinea(TParser * parser) {
 
   char linea[200];
-  fgets (linea, 200, fp);
+  fgets (linea, 200, parser.archivo);
 
   // ahora tengo que parsear esa linea por las ','
   // posiblemente usar una funcion que evaluee el caracter de escape?
@@ -30,11 +31,20 @@ int PARS_ObtLinea(TParser * parser) {
 }
 
 int PARS_ObtCampo(TParser * parser, int N, char * campo) {
-  // le apunto a la posicion n del array lo pego en campo
+
+  if( parser.campos[N] == NULL ){ // Algun chequeo de que no pida un campo no disponible
+    return 0;
+  }
+  strcpy(campo, parser.campos[N]);
+  return 1;
 }
 
 int PARS_ObtQCampos(TParser * parser) {
-  // array.length hopefully
+  int nCampos;
+  while ( ++parser.campos != '/0') {
+    nCampos++;
+  }
+  return nCampos;
 }
 
 void PARS_Destruir(TParser * parser) {
