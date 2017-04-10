@@ -6,7 +6,7 @@
 typedef struct T_Parcer {
   FILE * archivo;
   char delimitador, escape;
-  char * campos[]
+  char ** campos;
 } T_Parcer;
 
 /*  FUNCIONES  */
