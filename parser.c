@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-/* #include "parser.h" */
+#include "parser.h"
 
 int PARS_Crear(T_Parser * parser, char * archivo, char delimitador, char escape) {
 
@@ -15,7 +15,7 @@ int PARS_Crear(T_Parser * parser, char * archivo, char delimitador, char escape)
   parser->escape = escape;
 
   /* Pido memoria para los campos leidos del archivo */
-  parser->campos = malloc(sizeof(char *));
+  parser->campos = malloc(20*sizeof(char *));
 
   return 1;
 }
@@ -72,11 +72,19 @@ int PARS_ObtCampo(T_Parser * parser, int N, char * campo) {
 }
 
 int PARS_ObtQCampos(T_Parser * parser) {
-  return sizeof(parser->campos) / sizeof(parser->campos[0]);
+
+  int cont = 0;
+  /* Cuando parser->campo apunte a null salgo del loop */
+  while (parser->campo) {
+    parser->(++campo);
+    cont++;
+  }
+  return cont;
 }
 
 void PARS_Destruir(T_Parser * parser) {
 
+  /* Cuando parser->campo apunte a null salgo del loop */
   while (parser->campo) {
     free(*parser->(++campo));
   }

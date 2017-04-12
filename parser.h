@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
-
 /*  ESTRUCTURA  */
 
 typedef struct T_Parser {
