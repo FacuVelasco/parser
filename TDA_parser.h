@@ -1,3 +1,8 @@
+#ifndef __TDA_PARSER_H__
+#define __TDA_PARSER_H__
+#include <stdlib.h>
+#include <stdio.h>
+
 /*  ESTRUCTURA  */
 
 typedef struct T_Parser {
@@ -40,3 +45,5 @@ PRE: "parser" creado.
 POST: "parser" destruido.
 */
 void PARS_Destruir(T_Parser * parser);
+
+#endif

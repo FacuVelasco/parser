@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "parser.h"
+#include "TDA_parser.h"
 
 #define clear() printf("\033[H\033[J");
 
@@ -32,6 +32,7 @@ int main(int argc, char * argv[]) {
       scanf("%d",opcion);
     }
     seleccionarMenu(opcion);
+    printf("\nPresiona enter para continuar\n");
     getchar();
   }
   return 0;
@@ -71,7 +72,7 @@ void crearParcer(T_Parser * parser) {
   printf("Ingrese el escape de su parser\n");
   scanf("%s",escape);
 
-  if (PARS_Crear(parser, archivo, delimitador, escape)) {
+    if (PARS_Crear(parser, archivo, delimitador, escape)) {
     printf("Parcer creado y arhivo abierto\n");
     return;
   }

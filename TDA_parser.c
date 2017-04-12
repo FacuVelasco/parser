@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "parser.h"
+#include "TDA_parser.h"
 
 int PARS_Crear(T_Parser * parser, char * archivo, char delimitador, char escape) {
 
@@ -53,7 +53,7 @@ int PARS_ObtLinea(T_Parser * parser) {
       }
       campo[i] = '\0';
 
-      parser->campo = malloc(strlen(campo))
+      parser->campo = malloc(strlen(campo));
       strcpy(parser->(++campo), campo);
     }
     return 1;
